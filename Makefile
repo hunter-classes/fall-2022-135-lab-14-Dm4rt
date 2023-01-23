@@ -1,12 +1,10 @@
-main: main.o MyVector.o
-	g++ -o main main.o MyVector.o
-tests: tests.o MyVector.o
-	g++ -o tests tests.o MyVector.o
-main.o: main.cpp MyVector.h
+main: main.o 
+	g++ -o main main.o
+tests: tests.o 
+	g++ -o tests tests.o 
+main.o: main.cpp MyVector.h MyVector.cxx
 
-tests.o:tests.cpp MyVector.h
-
-MyVector.o: MyVector.cpp MyVector.h
+tests.o:tests.cpp MyVector.h MyVector.cxx
 
 clean:
 	rm -f *o

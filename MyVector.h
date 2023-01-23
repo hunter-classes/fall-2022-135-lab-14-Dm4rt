@@ -9,10 +9,14 @@ class MyVector{
   int capacity();
   bool empty();
   void push_back(T item);
-  void pop_back(T n);
   void pop_back();
+  void pop_back(int n);
   void clear();
+  T operator [](int index);
  private:
-  T values[];
+  const static int maxCapacity=100;
   int curSize;
+  T values[maxCapacity];
 };
+
+#include "MyVector.cxx"
