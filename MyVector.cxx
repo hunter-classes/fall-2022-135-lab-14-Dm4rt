@@ -52,7 +52,10 @@ void MyVector<T>::clear(){
 
 template <class T>
 T MyVector<T>::operator [](int index){
-  return values[index];
+  if(index < curSize && curSize!=0){
+    return values[index];
+  }
+  
 }
 
 
