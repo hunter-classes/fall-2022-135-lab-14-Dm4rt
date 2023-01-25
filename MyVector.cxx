@@ -4,6 +4,7 @@
 template <class T>
 MyVector<T>::MyVector(){
   curSize=0;
+  values = new T[maxCapacity];
 }
 
 template <class T>
@@ -26,8 +27,22 @@ bool MyVector<T>::empty(){
 
 template <class T>
 void MyVector<T>::push_back(T item){
-  values[curSize]=item;
-  curSize++;
+  if(curSize==maxCapacity){
+    T *newArray= new  T[maxCapacity+1];
+    for(int x=0;x<maxCapacity;x++){
+      newArray[x] = values[x];
+    }
+
+    delete [] values;
+    values = newArray;
+    newArray=NULL;
+    curSize++;
+    maxCapacity++;
+  }
+  else{
+    values[curSize]=item;
+    curSize++;
+  }
   
 }
 

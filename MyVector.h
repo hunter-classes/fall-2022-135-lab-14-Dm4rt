@@ -14,9 +14,9 @@ class MyVector{
   void clear();
   T operator [](int index);
  private:
-  const static int maxCapacity=100;
+  int maxCapacity=100;
   int curSize;
-  T values[maxCapacity];
+  T *values;
 };
 
 #include "MyVector.cxx"

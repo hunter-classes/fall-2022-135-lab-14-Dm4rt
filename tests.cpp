@@ -95,3 +95,13 @@ TEST_CASE("clear()"){
   testVect.clear();
   CHECK(testVect.size()==0);
 }
+
+TEST_CASE("Over Capacity"){
+  MyVector<int> testVect;
+  for(int x=0;x<100;x++){
+    testVect.push_back(x);
+  }
+  testVect.push_back(100);
+  CHECK(testVect.capacity()==101);
+  CHECK(testVect.size()==101);
+}
